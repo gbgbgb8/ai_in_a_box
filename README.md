@@ -2,26 +2,30 @@ Warning - I don't know wtf I'm doing, but I'm trying to see if I can use ai to f
 
 
 # Update to phi4?
+
+
 To run the script on your AI in a Box:
 
-SSH into the device:
+1. SSH into the device:
+```bash
+ssh ubuntu@<device-ip>
+# Password: ubunturock
+```
 
-bashCopyssh ubuntu@<device-ip>
-Password: ubunturock
-
-Download and run the script:
-
-bashCopycurl -L -o updateToPhi4.sh https://github.com/gbgbgb8/ai_in_a_box/raw/main/updateToPhi4.sh
+2. Download and run the script:
+```bash
+curl -L -o updateToPhi4.sh https://github.com/gbgbgb8/ai_in_a_box/raw/main/updateToPhi4.sh
 chmod +x updateToPhi4.sh
 sudo ./updateToPhi4.sh
-The script will:
+```
 
-Check for a USB drive for backups
-Back up the original files
-Download the Phi-4-small model
-Update configuration files
-Update the startup script
-Restart the service
+The script will:
+1. Check for a USB drive for backups
+2. Back up the original files
+3. Download the Phi-4-small model
+4. Update configuration files
+5. Update the startup script
+6. Restart the service
 
 Each step requires user confirmation, and the script provides detailed feedback to ensure everything is working correctly.
 
