@@ -1,3 +1,36 @@
+Warning - I don't know wtf I'm doing, but I'm trying to see if I can use ai to figure out how to update the ai on this box. It might not work, it might break things, it might burst into flame.
+
+
+# Update to phi4?
+To run the script on your AI in a Box:
+
+SSH into the device:
+
+bashCopyssh ubuntu@<device-ip>
+Password: ubunturock
+
+Download and run the script:
+
+bashCopycurl -L -o updateToPhi4.sh https://github.com/gbgbgb8/ai_in_a_box/raw/main/updateToPhi4.sh
+chmod +x updateToPhi4.sh
+sudo ./updateToPhi4.sh
+The script will:
+
+Check for a USB drive for backups
+Back up the original files
+Download the Phi-4-small model
+Update configuration files
+Update the startup script
+Restart the service
+
+Each step requires user confirmation, and the script provides detailed feedback to ensure everything is working correctly.
+
+?
+?
+?
+profit?
+
+
 # AI in a Box.
 
 AI in a Box from [Useful Sensors](https://usefulsensors.com/) showcases
