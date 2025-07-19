@@ -1,38 +1,75 @@
 Warning - I don't know wtf I'm doing, but I'm trying to see if I can use ai to figure out how to update the ai on this box. It might not work, it might break things, it might burst into flame.
 
 
-# Update to phi4?
+# Update to phi3?
 
 
-To run the script on your AI in a Box:
+This will be destructive, remove original working sd, use a different one.
 
-1. SSH into the device:
-```bash
-ssh ubuntu@<device-ip>
-# Password: ubunturock
+
+
+
+flash the 11gb image to a 64gb sd card using balena, see resize.sh to set sd card vars
+
+boot the box while it's on a wired lan
+
+ssh to its ip using ssh ubuntu@192.168.1.102 ubunturock
+
+nano resize.sh
+
+paste contents, ctrl-o, ctrl-x
+
+chmod +x ./resize.sh
+
+sudo ./resize.sh
+
+y to resize, look at available, sudo reboot
+
+
+
+ssh back in to it.
+
+nano ./swap.sh
+
+paste contents, ctrl-o, ctrl-x
+
+chmod +x ./swap.sh
+
+./swap.sh
+
+wait for it to run
+
+sudo reboot if needed, but should now work.
+
+
+
+
+```console
+ssh ubuntu@192.168.1.102
+ubunturock
+nano ./resize.sh
+paste from local resize.sh into console
+ctrl+o, enter
+ctrl+x
+chmod +x ./resize.sh
+sudo ./resize.sh
+ubunturock
+y, enter
+Avail should show around 47G
+sudo reboot
+
+nano swap.sh
+paste from local swap.sh into console
+ctrl+o, enter
+ctrl+x
+chmod +x ./swap.sh
+./swap.sh
+ubunturock
 ```
 
-2. Download and run the script:
-```bash
-curl -L -o updateToPhi4.sh https://github.com/gbgbgb8/ai_in_a_box/raw/main/updateToPhi4.sh
-chmod +x updateToPhi4.sh
-sudo ./updateToPhi4.sh
-```
 
-The script will:
-1. Check for a USB drive for backups
-2. Back up the original files
-3. Download the Phi-4-small model
-4. Update configuration files
-5. Update the startup script
-6. Restart the service
-
-Each step requires user confirmation, and the script provides detailed feedback to ensure everything is working correctly.
-
-?
-?
-?
-profit?
+When script completes, sudo reboot
+LAN cable no longer needed.
 
 
 # AI in a Box.
