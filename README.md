@@ -71,6 +71,11 @@ ubunturock
 When script completes, sudo reboot
 LAN cable no longer needed.
 
+# Update to phi4
+
+Use the phi4.sh script instead of swap.sh
+
+
 
 # AI in a Box.
 
