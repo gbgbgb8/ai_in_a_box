@@ -1,0 +1,54 @@
+This will be destructive, remove original working sd, use a different one.
+
+
+flash the 11gb image to a 64gb sd card using balena, see resize.sh to set sd card vars
+boot the box while it's on a wired lan
+ssh to its ip using ssh ubuntu@192.168.1.102 ubunturock
+nano resize.sh
+paste contents, ctrl-o, ctrl-x
+chmod +x ./resize.sh
+sudo ./resize.sh
+y to resize, look at available, sudo reboot
+
+ssh back in to it.
+nano ./swap.sh
+paste contents, ctrl-o, ctrl-x
+chmod +x ./swap.sh
+./swap.sh
+wait for it to run
+sudo reboot if needed, but should now work.
+
+
+
+https://github.com/moonshine-ai/ai_in_a_box
+https://storage.googleapis.com/download.usefulsensors.com/ai_in_a_box/ai_in_a_box_11gb_20240126.img.gz
+
+cd
+curl -L -O https://storage.googleapis.com/download.usefulsensors.com/ai_in_a_box/ai_in_a_box_11gb_20240126.img.gz
+
+https://etcher.balena.io/
+
+
+ssh ubuntu@192.168.1.102
+ubunturock
+nano ./resize.sh
+paste from local resize.sh into console
+ctrl+o, enter
+ctrl+x
+chmod +x ./resize.sh
+sudo ./resize.sh
+ubunturock
+y, enter
+Avail should show around 47G
+sudo reboot
+
+nano swap.sh
+paste from local swap.sh into console
+ctrl+o, enter
+ctrl+x
+chmod +x ./swap.sh
+./swap.sh
+ubunturock
+
+When script completes, sudo reboot
+LAN cable no longer needed.
